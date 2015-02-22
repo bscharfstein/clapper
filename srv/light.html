@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+.bulb {
+    display: block;
+    margin: 0 auto;
+}
+</style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+    <script src="socket.io.js"></script>
+    <script>
+WEB_SOCKET_SWF_LOCATION = "/WebSocketMain.swf";
+WEB_SOCKET_DEBUG = true;
+var socket = io.connect();
+socket.on('connect', function () {
+        console.log("connected");
+});
+socket.on('reconnect', function () {
+    console.log('Reconnected to the server');
+});
+socket.on('reconnecting', function () {
+    console.log('Attempting to re-connect to the server');
+});
+socket.on('error', function (e) {
+    console.log(e ? e : 'A unknown error occurred');
+});
+socket.on('turn-on', function () {
+    $("#lit-bulb").show();
+    $("#dark-bulb").hide();
+})
+socket.on('turn-off', function () {
+    $("#lit-bulb").hide();
+    $("#dark-bulb").show();
+})
+    </script>
+  </head>
+<body>
+    <img class="bulb" id="lit-bulb" style="display: none" src="/light.png">
+    <img class="bulb" id="dark-bulb" src="/dark.png">
+</body>
+</html>
