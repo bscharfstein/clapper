@@ -1,0 +1,17 @@
+{
+  "uuid": "fa3086ec-8a83-4f41-9f7e-5dcfc96ede3f",
+  "shortName": "clapper",
+  "longName": "clapper",
+  "companyName": "MakeAwesomeHappen",
+  "versionCode": 1,
+  "versionLabel": "1.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
